@@ -1,0 +1,32 @@
+{# templates/registration/register.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+
+{% block body %}
+
+<div class='block-form'>
+<h1 class='m-3'>Register</h1>
+
+{{ form_start(registrationForm) }}
+    {{ form_row(registrationForm.email) }}
+    {{ form_row(registrationForm.plainPassword.first) }}
+    {{ form_row(registrationForm.plainPassword.second) }}
+
+    <button class="btn btn-lg btn-primary m-3">Register</button>
+{{ form_end(registrationForm) }}
+</div>
+<style>
+    #registration_form_plainPassword_first,#registration_form_plainPassword_second,#registration_form_email{
+        display: block;
+        width: 100%;
+        
+    }
+    .block-form{
+        width: 400px;
+        margin: auto;
+    }
+</style>
+{% endblock %}

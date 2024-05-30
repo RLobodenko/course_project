@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CommentController!{% endblock %}
+
+{% block body %}
+<h2>Comment for item {{item.name}}</h2>
+<ul>
+{% for comment in comments %}
+    <li>
+        <p>
+            {{comment.user.email}}: {{comment.content}}
+            <br />{{comment.createAt|date('d-m-Y H:i')}}
+        </p>
+            
+    </li>
+{% endfor %}
+</ul>
+<p><a href='/item/{{item.id}}/comment/new'>Add comment item</a></p>
+<p><a href='/collectionns'>Back collections</a></p>
+{% endblock %}

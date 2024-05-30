@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RegContollerController!{% endblock %}
+
+{% block body %}
+    <h2 class='text-center ml-1'>Регистрация</h2>
+    <P class='text-center ml-1'>{{form_start(registrationForm)}}
+        {{form_row(registrationForm.email)}}
+        {{form_row(registrationForm.password)}}</P>
+        <button>Зарегистрироваться</button>
+    {{form_end(registrationForm)}}
+{% endblock %}

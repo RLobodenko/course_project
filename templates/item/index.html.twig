@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ItemController!{% endblock %}
+
+{% block body %}
+<p class="m-3">
+    <h2>{{collection.name}}</h2>
+    
+    <p>{{collection.description|markdown}}</p>
+    <p><a href='/collection/{{collection.id}}/item/create'>Create new item</a></p>
+    <table>
+        <tr class="table table-striped">
+             <th scope="col">ID</th>
+             <th scope="col">Name</th>
+             <th scope="col">Tags</th>
+             <th scope="col"></th>
+        </tr>
+        {% for item in items %}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.tags}}</td>
+                <td>
+                    <a href='/collection/{{collection.id}}/item/{{item.id}}/edit'>Edit</a><a href='/collection/{{collection.id}}/item/{{item.id}}/delete'>Delete</a>
+                    <br />
+                    <a href='/items/{{item.id}}/comments'>Comments</a>
+                </td>
+            </tr>
+            
+        {% endfor %}
+    </table>
+    <p><a href='/collectionns'>Back list collections</a></p></p>
+{% endblock %}

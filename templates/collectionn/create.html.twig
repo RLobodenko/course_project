@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create new collection{% endblock %}
+
+{% block body %}
+<h2  class="m-3">Create new collection</h2>
+<span  class="m-3">
+{{ form_start(form) }}
+    {{ form_row(form.name, {'label':'Name'}) }}
+    {{ form_row(form.description, {'label':'Description'}) }}
+    {{ form_row(form.category, {'label':'Category'}) }}
+    </span>
+    <button  class="m-3">Create</button>
+{{ form_end(form) }}
+<a href='/collectionns'  class="m-3">Back list collections</a>
+{% endblock %}

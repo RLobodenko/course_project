@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'main_1'|trans}}{% endblock %}
+
+{% block body %}
+<div style='margin: 20px'>
+    <h2 class='text-center m-3'>{{'index_1'|trans}}</h2>
+    <ul class="list-group">
+        {% for item in items %}
+            <li class="list-group-item">
+                {{item.name}} (Collection: {{item.collection.name}})
+            </li>
+        {% endfor %}
+    </ul>
+    <h2 class='text-center m-3'>{{'index_2'|trans}}</h2>
+    <ul class="list-group">
+    {% for coll in collections %}
+            <li class="list-group-item">
+                {{coll.name}} - {{coll.items|length}}
+            </li>
+        {% endfor %}
+    </ul>
+    <h2 class='text-center m-3'>{{'index_3'|trans}}</h2>
+    <p>
+        {% for item in items %}
+            <a href='/collection/{{item.collection.id}}/items'>{{item.tags}}</a>, 
+        {% endfor %}
+    </p>
+</div>
+{% endblock %}

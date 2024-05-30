@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Коллекция{% endblock %}
+
+{% block body %}
+    <h1 align='center'>Коллекция</h1>
+
+    <table class="table" align='center'>
+        <thead>
+            <tr>
+                <th>Номер</th>
+                <th>Год</th>
+                <th>Страна</th>
+                <th>Цена</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for kollection in kollections %}
+            <tr>
+                <td>{{ kollection.id }}</td>
+                <td>{{ kollection.year }}</td>
+                <td>{{ kollection.country }}</td>
+                <td>{{ kollection.price }}</td>
+                <td>
+                    <a href="{{ path('app_kollections_show', {'id': kollection.id}) }}">Подробнее</a>
+                    <a href="{{ path('app_kollections_edit', {'id': kollection.id}) }}">Редактировать</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Нет данных</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<Center>
+    <a href="{{ path('app_kollections_new') }}">Создать</a></Center>
+{% endblock %}

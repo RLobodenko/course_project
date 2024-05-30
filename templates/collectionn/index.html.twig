@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Collections!{% endblock %}
+
+{% block body %}
+<h2 class="m-3">My collections</h2>
+<a href='/collection/new' class="m-3">Create new collection</a>
+<ul>
+    {% for collection in collections %}
+        <li>
+            <a href='{{path("item_index", {'id': collection.id})}}'>{{collection.name}}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
